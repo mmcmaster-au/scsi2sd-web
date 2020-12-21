@@ -24,6 +24,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Rewrite base href for github pages deployment
+        uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
+        with:
+          html_path: 'scsi2sd-web-client/src/index.html'
+          base_href: '/scsi2sd-web/'
       - name: npm install and npm run build
         working-directory: scsi2sd-web-client
         run: |
